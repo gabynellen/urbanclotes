@@ -1,0 +1,24 @@
+.Navbar {
+    display: flex;
+    width: 100vw;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    background-color: gray;
+    align-items: center;
+    justify-content: space-between;
+} 
+
+.Name{
+    color: black;
+    font-weight: bold;
+    font-size: 25px;
+    padding-left: 10px;
+}
+
+.Option{
+    display: flex;
+    justify-content: space-evenly;
+    padding-right: 10px;
+    width: 30%;
+}
