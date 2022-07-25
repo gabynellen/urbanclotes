@@ -1,0 +1,7 @@
+.row{
+    display: flex;
+    justify-content: center;
+}
+.boton{
+    margin-right: 2px;
+}
