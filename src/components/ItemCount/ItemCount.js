@@ -2,7 +2,7 @@ import '../ItemCount/ItemCount.css';
 import { useState, useEffect } from 'react';
 import { faIgloo } from '@fortawesome/free-solid-svg-icons';
 
-const ItemCount = ({stock, initial}) => {
+const ItemCount = ({stock, initial, onAdd}) => {
 
     const [count, setCount] = useState(1)
 
@@ -24,8 +24,6 @@ const ItemCount = ({stock, initial}) => {
         
     }
 
-
-
     return (
 
         <div>
@@ -35,12 +33,12 @@ const ItemCount = ({stock, initial}) => {
             <div className='row'>
                 <div className='col-4 botones mb-3'>
                     <button className='btn btn-primary boton' onClick={decrement}>-</button>
-                    <button className='btn btn-primary' onClick={increment}>+</button>
+                    <button className='btn btn-primary boton' onClick={increment}>+</button>
                 </div>
             </div>
             <div className='row'>
                 <div className='col-4'>
-                    <button className='btn btn-outline-primary'>Agregar al Carrito</button>
+                    <button className='btn btn-outline-primary' onClick={() =>onAdd(count)}>Agregar al Carrito</button>
                 </div>
             </div>
 
