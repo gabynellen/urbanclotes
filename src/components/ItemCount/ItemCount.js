@@ -28,21 +28,17 @@ const ItemCount = ({stock, initial, onAdd}) => {
 
         <div>
             <div className='row'>
-                <p>{count}</p>
-            </div>
-            <div className='row'>
-                <div className='col-4 botones mb-3'>
+                <div className='col-6 botones mb-3'>
                     <button className='btn btn-primary boton' onClick={decrement}>-</button>
+                    <p>{count}</p>
                     <button className='btn btn-primary boton' onClick={increment}>+</button>
                 </div>
             </div>
             <div className='row'>
-                <div className='col-4'>
+                <div className='col-6'>
                     <button className='btn btn-outline-primary' onClick={() =>onAdd(count)}>Agregar al Carrito</button>
                 </div>
-            </div>
-
-            
+            </div>  
         </div>
     )
 }

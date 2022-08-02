@@ -22,7 +22,11 @@ function App() {
   return (
     <div className="App">
       <Navbar/>
-      <ItemCount stock={stock} initial={1} onAdd={handleOnAdd}/>
+      <div className='row mt-2'>
+        <div className='col-6'>
+          <ItemCount stock={stock} initial={1} onAdd={handleOnAdd}/>
+        </div>
+      </div>
       <ItemListContainer greeting="Hola Tutor "/>
       <ItemDetailContainer />
     </div>

@@ -2,6 +2,12 @@
     display: flex;
     justify-content: center;
 }
+
 .boton{
-    margin-right: 2px;
+    width: 40px;
+}
+.botones{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
 }
