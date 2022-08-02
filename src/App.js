@@ -4,6 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemCount from './components/ItemCount/ItemCount';
 import { useState } from 'react';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
       <Navbar/>
       <ItemCount stock={stock} initial={1} onAdd={handleOnAdd}/>
       <ItemListContainer greeting="Hola Tutor "/>
+      <ItemDetailContainer />
     </div>
   );
 }

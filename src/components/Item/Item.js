@@ -10,7 +10,7 @@ const Item = ({product}) =>{
             <div className="img">
                 <img src={product.img}></img>
             </div>
-            <div className="detalles">
+            <div className="btnDetail">
                 <button className="btn btn-primary">Ver detalle</button>
             </div>
             <div className="stock">

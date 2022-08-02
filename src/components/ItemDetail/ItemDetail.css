@@ -1,0 +1,39 @@
+.item{
+    width: 800px;
+    margin: 10px;
+}
+.cardDetail{
+    border: 2px solid rgba(128, 128, 128, 0.678);
+    border-radius: 5px;
+    background-color: rgba(173, 216, 230, 0.219);
+}
+
+.tittleDetail{
+    font-size: 30px;
+    background-color: lightblue;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.678);
+}
+
+.imgdetail{
+    display: flex;
+    align-items: center;
+}
+
+.imgdetail img{
+    margin: 5px;
+    border: 1px solid rgba(128, 128, 128, 0.678);
+    border-radius: 5px;
+}
+
+.imgdetail p{
+    font-size: 20px;
+    font-family: sans-serif;
+}
+
+.stockDetail{
+    display: flex;
+    justify-content: end;
+    margin: 10px;
+    line-height: 1;
+    font-size: 17px;
+}
