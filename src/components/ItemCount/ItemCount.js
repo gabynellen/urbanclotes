@@ -1,14 +1,9 @@
 import '../ItemCount/ItemCount.css';
-import { useState, useEffect } from 'react';
-import { faIgloo } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 
 const ItemCount = ({stock, initial, onAdd}) => {
 
     const [count, setCount] = useState(1)
-
-    // useEffect(()=> {
-
-    // }, [show])
 
     const decrement = () => {
         if(count > initial ){

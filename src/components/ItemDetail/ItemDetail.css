@@ -5,15 +5,15 @@
 }
 .cardDetail{
     width: 800px;
-    border: 2px solid rgba(128, 128, 128, 0.678);
+    border: 2px solid #808080ad;
     border-radius: 5px;
-    background-color: rgba(173, 216, 230, 0.219);
+    background-color: #add8e638;
 }
 
 .tittleDetail{
     font-size: 30px;
     background-color: lightblue;
-    border-bottom: 2px solid rgba(128, 128, 128, 0.678);
+    border-bottom: 2px solid #808080ad;
 }
 
 .imgdetail{
@@ -23,7 +23,7 @@
 
 .imgdetail img{
     margin: 5px;
-    border: 1px solid rgba(128, 128, 128, 0.678);
+    border: 1px solid #808080ad;
     border-radius: 5px;
 }
 
@@ -32,9 +32,14 @@
     font-family: sans-serif;
 }
 
+.imgdetail .price{
+    margin-top: 5px;
+    font-size: 25px;
+}
+
 .stockDetail{
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin: 10px;
     line-height: 1;
     font-size: 17px;

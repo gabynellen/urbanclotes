@@ -26,12 +26,15 @@ const ItemDetail = ({product}) =>{
                     {product.name}
                 </div>
                 <div className="imgdetail">
-                    <img src={product.img}></img>
+                    <img src={product.img} alt={product.name}></img>
                     <div className='detail'>   
                         <p>
                             {product.descripcion}
                         </p>
                         <ItemCount stock={stock} initial={1} onAdd={handleOnAdd}/>
+                        <div className='price'>
+                          Precio: ${product.price}
+                        </div>
                     </div>
                 </div>
                 <div className="stockDetail">
