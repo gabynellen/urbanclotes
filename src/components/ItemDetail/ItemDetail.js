@@ -4,17 +4,16 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import ItemCount from '../ItemCount/ItemCount';
 import { useState } from 'react';
 
-const ItemDetail = ({product}) =>{
+const ItemDetail = ({id, name, img, stock, descripcion, price, category }) =>{
 
     const [cantidad, setCantidad] = useState(0)
-    const [stock, setStock] = useState(product.stock)
+    const [stockPro, setStock] = useState(stock)
   
     const handleOnAdd = (quantity) => {
-  
-      if(quantity <= stock){
+      if(quantity <= stockPro){
         console.log('cantidad de items agregados', quantity)
         setCantidad(cantidad + quantity)
-        setStock(stock - quantity)
+        setStock(stockPro - quantity)
       }
     }
 
@@ -22,23 +21,26 @@ const ItemDetail = ({product}) =>{
 
         <div className='item'>
             <div className="cardDetail">
-                <div className="tittleDetail" key={product.id}>
-                    {product.name}
+                <div className="tittleDetail" key={id}>
+                    {name}
                 </div>
                 <div className="imgdetail">
-                    <img src={product.img} alt={product.name}></img>
-                    <div className='detail'>   
+                    <img src={img} alt={name}></img>
+                    <div className='detail'>  
                         <p>
-                            {product.descripcion}
+                            Categoria: {category}.
+                        </p> 
+                        <p>
+                            descripcion: {descripcion}
                         </p>
-                        <ItemCount stock={stock} initial={1} onAdd={handleOnAdd}/>
+                        <ItemCount stock={stockPro} initial={1} onAdd={handleOnAdd}/>
                         <div className='price'>
-                          Precio: ${product.price}
+                          Precio: ${price}
                         </div>
                     </div>
                 </div>
                 <div className="stockDetail">
-                    Stock <FontAwesomeIcon icon={faCartShopping} color="black"/>: {stock}
+                    Stock <FontAwesomeIcon icon={faCartShopping} color="black"/>: {stockPro}
                 </div>
             </div>
         </div>

@@ -19,6 +19,7 @@
 .imgdetail{
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
 }
 
 .imgdetail img{
