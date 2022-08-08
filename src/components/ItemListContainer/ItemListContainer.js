@@ -11,23 +11,17 @@ const ItemListContainer = ({greeting}) => {
 
     
     useEffect(()=>{
-        if(categoryId){
-            getProductByCategory(categoryId).then(response =>{
-                setProduts(response)
-            }).catch(error =>{
-    
-            }).finally(()=>{
-                setLoading(false)
-            })
-        }else{
-            getProducts().then(response =>{
-                setProduts(response)
-            }).catch(error =>{
-    
-            }).finally(() =>{
-                setLoading(false)
-            })
-        }
+
+        const AsyncFunction = categoryId ? getProductByCategory : getProducts
+
+        AsyncFunction(categoryId).then(response =>{
+
+            setProduts(response)
+        }).catch(error =>{
+
+        }).finally(()=>{
+            setLoading(false)
+        })
 
 
     }, [categoryId])
