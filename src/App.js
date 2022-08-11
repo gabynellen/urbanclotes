@@ -1,34 +1,27 @@
 import './App.css';
-import './components/Navbar/Navbar';
 import Navbar from './components/Navbar/Navbar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import ItemCount from './components/ItemCount/ItemCount';
-import { useState } from 'react';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import Cart from './components/Cart/Cart';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { CartContextProvider } from './context/CartContext';
+
 
 function App() {
 
-  const [cantidad, setCantidad] = useState(0)
-  const stock = 10
-
-  const handleOnAdd = (quantity) => {
-
-    if(cantidad < stock){
-      console.log('cantidad de items agregados', quantity)
-      setCantidad(cantidad + quantity)
-    }
-  }
-
   return (
     <div className="App">
-      <Navbar/>
-      <div className='row mt-2'>
-        <div className='col-6'>
-          <ItemCount stock={stock} initial={1} onAdd={handleOnAdd}/>
-        </div>
-      </div>
-      <ItemListContainer greeting="Hola Tutor "/>
-      <ItemDetailContainer />
+      <CartContextProvider>
+        <BrowserRouter>
+          <Navbar/>
+          <Routes>
+            <Route path='/' element={<ItemListContainer greeting="Todos los Productos"/>}/>
+            <Route path='/category/:categoryId' element={<ItemListContainer greeting="Estamos Filtrando "/>}/>
+            <Route path='/detail/:id' element={<ItemDetailContainer />}/>
+            <Route path='/cart' element={<Cart />}/>
+          </Routes>
+        </BrowserRouter>
+      </CartContextProvider>
     </div>
   );
 }

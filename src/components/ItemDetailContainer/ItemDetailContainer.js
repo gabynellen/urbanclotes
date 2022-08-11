@@ -1,22 +1,24 @@
 import '../ItemDetailContainer/ItemDetailContainer.css'
 import { useState, useEffect } from 'react';
-import { getProduct } from '../../AsyncMock';
+import { getProductById } from '../../AsyncMock';
 import ItemDetail from '../ItemDetail/ItemDetail';
-
+import { useParams } from 'react-router-dom'
+ 
 const ItemDetailContainer = ({greeting}) => {
 
-    const [product, setProdut] = useState([])
+    const [product, setProdut] = useState()
     const [loading, setLoading] = useState(true)
+    const {id} = useParams()
  
     useEffect(()=>{
-        getProduct().then(response =>{
+        getProductById(id).then(response =>{
             setProdut(response)
         }).catch(error =>{
 
         }).finally(() =>{
             setLoading(false)
         })
-    }, [])
+    }, [id])
 
     if(loading){
        return <h1>Cargando Producto...</h1>
@@ -24,7 +26,7 @@ const ItemDetailContainer = ({greeting}) => {
 
     return (
         <>
-            <ItemDetail className="itemDetail" product={product}></ItemDetail>
+            <ItemDetail {...product} />
         </>
         
     )

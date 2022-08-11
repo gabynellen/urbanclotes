@@ -15,7 +15,7 @@ const products = [
         category: 'pantalones',
         img: '../images/jogger.jpg',
         stock: 5,
-        descripcion: "Pantalon corte jogger hombre."
+        descripcion: "Pantalon corte jogger hombre, gabardina. Cod: 70587, Ind. Arg fabricado en la provincia de Santa Fe."
     },
     {
         id: '3',
@@ -24,7 +24,7 @@ const products = [
         category: 'buzos',
         img: '../images/buzo.jpg',
         stock: 7,
-        descripcion: "Buzo canguro negro hombre."
+        descripcion: "Buzo canguro negro hombre, Algodón frizado. Cod: 50031, Ind. Arg fabricado en la provincia de Santa Fe."
     }
 ]
 
@@ -32,14 +32,22 @@ export const getProducts = () =>{
     return new Promise((resolve) =>{
         setTimeout(() =>{
             resolve(products)
-        },2000)
+        },500)
     })
 }
 
-export const getProduct = () =>{
+export const getProductById = (id) =>{
     return new Promise((resolve) =>{
         setTimeout(() =>{
-            resolve(products[0])
-        },2000)
+            resolve(products.find(prod => prod.id === id))
+        },500)
+    })
+}
+
+export const getProductByCategory = (categoryId) =>{
+    return new Promise((resolve) =>{
+        setTimeout(() =>{
+            resolve(products.filter(prod => prod.category === categoryId))
+        },500)
     })
 }

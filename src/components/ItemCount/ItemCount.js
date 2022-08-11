@@ -1,14 +1,9 @@
 import '../ItemCount/ItemCount.css';
-import { useState, useEffect } from 'react';
-import { faIgloo } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 
 const ItemCount = ({stock, initial, onAdd}) => {
 
     const [count, setCount] = useState(1)
-
-    // useEffect(()=> {
-
-    // }, [show])
 
     const decrement = () => {
         if(count > initial ){
@@ -35,7 +30,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
                 </div>
             </div>
             <div className='row'>
-                <div className='col-6'>
+                <div className='col-12'>
                     <button className='btn btn-outline-primary' onClick={() =>onAdd(count)}>Agregar al Carrito</button>
                 </div>
             </div>  
