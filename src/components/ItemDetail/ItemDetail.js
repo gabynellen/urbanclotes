@@ -2,13 +2,17 @@ import '../ItemDetail/ItemDetail.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import ItemCount from '../ItemCount/ItemCount';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../../context/CartContext';
+
 
 const ItemDetail = ({id, name, img, stock, descripcion, price, category }) =>{
 
     const [quantity, setQuantity] = useState(0)
+    const {addItem} = useContext(CartContext)
     const [stockPro, setStock] = useState(stock)
+   
   
     const handleOnAdd = (quantity) => {
       if(quantity <= stockPro){
@@ -16,7 +20,9 @@ const ItemDetail = ({id, name, img, stock, descripcion, price, category }) =>{
       }
       console.log('cantidad de items agregados', quantity)
       setQuantity(quantity)
+      addItem({id, name, price, quantity})
     }
+    
 
     return(
 
