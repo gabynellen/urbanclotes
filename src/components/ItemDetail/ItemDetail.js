@@ -10,15 +10,11 @@ import { CartContext } from '../../context/CartContext';
 const ItemDetail = ({id, name, img, stock, descripcion, price, category }) =>{
 
     const [quantity, setQuantity] = useState(0)
-    const {addItem} = useContext(CartContext)
-    const [stockPro, setStock] = useState(stock)
+    const {addItem, getProductQuantity} = useContext(CartContext)
    
+    const quantityAdded = getProductQuantity(id)
   
     const handleOnAdd = (quantity) => {
-      if(quantity <= stockPro){
-        setStock(stockPro - quantity)
-      }
-      console.log('cantidad de items agregados', quantity)
       setQuantity(quantity)
       addItem({id, name, price, quantity})
     }
@@ -40,14 +36,11 @@ const ItemDetail = ({id, name, img, stock, descripcion, price, category }) =>{
                         <p>
                             descripcion: {descripcion}
                         </p>
-                        {quantity > 0 ? <Link to='/cart'>Ir al Carrito</Link> : <ItemCount stock={stockPro} initial={1} onAdd={handleOnAdd}/>}
+                        {quantity > 0 ? <Link to='/cart'>Ir al Carrito</Link> : <ItemCount stock={stock} initial={quantityAdded} onAdd={handleOnAdd}/>}
                         <div className='price'>
                           Precio: ${price}
                         </div>
                     </div>
-                </div>
-                <div className="stockDetail">
-                    Stock <FontAwesomeIcon icon={faCartShopping} color="black"/>: {stockPro}
                 </div>
             </div>
         </div>
