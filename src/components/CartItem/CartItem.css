@@ -1,0 +1,21 @@
+.CardCartItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    padding: 20px;
+    margin: 30px;
+    font-size: 10px;
+    background-color: lightblue;
+    border: 1px solid #161515;
+    border-radius: 10px;
+}
+.ContainerItemCartItem{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+    width: 320px;
+    font-size: 18px;
+    font-weight: 500;
+}
