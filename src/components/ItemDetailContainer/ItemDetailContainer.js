@@ -6,16 +6,17 @@ import { db } from '../../services/Firebase/index';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams } from 'react-router-dom'
  
-const ItemDetailContainer = ({greeting}) => {
+const ItemDetailContainer = ({addItem}) => {
 
     const [product, setProduct] = useState()
     const [loading, setLoading] = useState(true)
-    const {productId} = useParams()
+    const {id} = useParams()
  
-    useEffect(()=>{
+    useEffect(() => {
 
-        getDoc(doc(db, 'products', productId)).then(response => {
+        getDoc(doc(db, 'products', id)).then(response => {
             const values = response.data()
+
             const product = { id: response.id, ...values} 
             setProduct(product)
         }).catch(error => {
@@ -24,14 +25,12 @@ const ItemDetailContainer = ({greeting}) => {
             setLoading(false)
         })
 
-        // getProductById(id).then(response =>{
-        //     setProdut(response)
-        // }).catch(error =>{
-
-        // }).finally(() =>{
+        // getProductById(productId).then(response => {
+        //     setProduct(response)
+        // }).finally(() => {
         //     setLoading(false)
         // })
-    }, [productId])
+    }, [id])
 
     if(loading){
        return <h1>Cargando Producto...</h1>
@@ -39,7 +38,7 @@ const ItemDetailContainer = ({greeting}) => {
 
     return (
         <>
-            <ItemDetail {...product} />
+            <ItemDetail {...product} addItem={addItem}/>
         </>
         
     )

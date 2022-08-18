@@ -2,22 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore"
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBtFS81I5IFmDjW0_-hCW_Hyt5pMzN7OCw",
-  authDomain: "comision41080.firebaseapp.com",
-  projectId: "comision41080",
-  storageBucket: "comision41080.appspot.com",
-  messagingSenderId: "1043172939766",
-  appId: "1:1043172939766:web:61d83ecf837b22802499d7"
+  apiKey: "AIzaSyCJ4ThNUViOhdL_s-WvJX5ldWLqa9nfzNE",
+  authDomain: "urbanclotes07.firebaseapp.com",
+  projectId: "urbanclotes07",
+  storageBucket: "urbanclotes07.appspot.com",
+  messagingSenderId: "168989388153",
+  appId: "1:168989388153:web:11c8907739d898d4f3d3a8"
 };
-
-// const firebaseConfig = {
-//   apiKey: "AIzaSyDXut2i5ymxvitnPz4Z9Ah_FZi6x4TMIss",
-//   authDomain: "urbanclotes724.firebaseapp.com",
-//   projectId: "urbanclotes724",
-//   storageBucket: "urbanclotes724.appspot.com",
-//   messagingSenderId: "458744279155",
-//   appId: "1:458744279155:web:0ff414c1e380f61b657a06"
-// };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
