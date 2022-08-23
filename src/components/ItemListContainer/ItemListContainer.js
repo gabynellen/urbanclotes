@@ -8,7 +8,7 @@ import { db } from '../../services/Firebase/index';
 const ItemListContainer = ({greeting}) => {
 
     const {categoryId} = useParams()
-    const [products, setProducts] = useState([])
+    const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
 
     
@@ -21,11 +21,11 @@ const ItemListContainer = ({greeting}) => {
             : query(collection(db, 'products'), where('category', '==', categoryId))
 
         getDocs(collectionRef).then(response => {
-            const products = response.docs.map(doc => {
+            const productos = response.docs.map(doc => {
                 const values = doc.data()
                 return { id: doc.id, ...values}
             })
-            setProducts(products)
+            setProductos(productos)
         }).catch(error => {
             console.log(error)
         }).finally(() => {
@@ -39,14 +39,14 @@ const ItemListContainer = ({greeting}) => {
        return <h1>Cargando Productos...</h1>
     }
 
-    if(products.length === 0) {
+    if(productos.length === 0) {
         return categoryId ? <h1>No hay productos en nuestra categoria {categoryId}</h1> : <h1>No hay productos disponibles</h1>
     }
 
     return (
         <>
             <h1>{greeting}</h1>
-            <ItemList products={products}></ItemList>
+            <ItemList products={productos}></ItemList>
         </>
         
     )
