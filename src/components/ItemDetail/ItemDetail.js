@@ -1,6 +1,4 @@
 import '../ItemDetail/ItemDetail.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import ItemCount from '../ItemCount/ItemCount';
 import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';

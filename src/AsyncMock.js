@@ -24,7 +24,7 @@
 //         category: 'buzos',
 //         img: '../images/buzo.jpg',
 //         stock: 7,
-//         descripcion: "Buzo canguro negro hombre, Algodón frizado. Cod: 50031, Ind. Arg fabricado en la provincia de Santa Fe."
+//         descripcion: "Buzo liso negro hombre, Algodón frizado. Cod: 50030, Ind. Arg fabricado en la provincia de Santa Fe."
 //     }
 // ]
 

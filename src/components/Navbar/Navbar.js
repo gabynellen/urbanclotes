@@ -1,9 +1,26 @@
 import '../Navbar/Navbar.css';
 import CartWidget from '../CartWidget/CartWidget';
+import { collection,  getDocs } from 'firebase/firestore';
 import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import { db } from '../../services/Firebase/index'
 
 
 const Navbar = () => {
+
+    const [ menu, setMenu ] = useState([])
+
+    useEffect(()=>{
+        getDocs(collection(db, 'categorys')).then(response => {
+            const categorias = response.docs.map(doc => {
+                const values = doc.data()
+                return <Link to={`category/${values.name}`} className='btn btn-primary'>{values.name}</Link>
+            })
+            setMenu(categorias)
+        }).catch(error => {
+            console.log(error)
+        })
+    },[])
 
     return (
         <nav className='Navbar'>
@@ -11,9 +28,9 @@ const Navbar = () => {
                 <Link className="Name" to='/'>UrbanClotes</Link>
             </div>
             <div className='col-lg-4 col-sm-6 Option'>
-                <Link to='category/remeras' className='btn btn-primary'>Remeras</Link>
-                <Link to='category/pantalones' className='btn btn-primary'>Pantalones</Link>
-                <Link to='category/buzos' className='btn btn-primary'>Buzos</Link>
+                <ul className='menu'>
+                    {menu}
+                </ul>
                 <CartWidget/>
             </div>
 
